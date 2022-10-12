@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Bar</title>
+</head>
+<style>
+    @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;600&display=swap");
+
+body{
+    font-family: 'Poppins';
+    background-color: rgb(0, 0, 0);
+}
+ 
+.search-Bar{
+    border:2px solid ;
+    display: inline-block;
+    position: absolute;
+    top:50%;
+    left:50%;
+    transform: translate(-50%,-50%);
+    height:685px;
+    width:910px;
+}
+tr td{
+    font-size: 1.5rem;
+    border: 2px solid transparent;
+    margin-bottom: 20px;
+    border-radius: 6px;
+    border: 2px solid transparent;
+    padding: 11px;
+    background-color: slateblue;
+}
+th{
+    font-size: 2rem;
+    padding:0px 80px;
+    border:2px solid transparent;
+    text-align: start;
+    background-color:white;
+}
+
+#myTable{
+    position:relative;
+    top:48px;
+}
+tr td:hover{
+  cursor: pointer; background-color: rgb(138, 124, 230);
+}
+.deg{
+    border-radius: 6px;
+}
+th:hover{
+    cursor: pointer;
+  }
+#myInput{
+    height:70px;
+    width:100%;
+    border-radius: 10px;
+    background-color: white;
+}
+
+</style>
+<body>
+    <h1 class="typehere">TYPE BELOW</h1>
+    <div class="search-Bar">
+    <input id="myInput" type="text" placeholder="Names.." onkeyup="searchfun()">
+    <table id="myTable">
+        <tr class="header">
+            <th style="width:40%;" class="deg">Name</th>
+            <th style="width:30%;" class="deg">Degree</th>
+            <th style="width:30%;" class='deg'>Profrssion</th>
+        </tr>
+        <tr>
+            <td>Vivek-Nova</td>
+            <td >MS</td>
+            <td >Full Stack Dev</td>
+        </tr>
+        <tr>
+            <td>Roronoa-Zoro</td>
+            <td>Giga-Chad</td>
+            <td>Goat Swordsman</td>
+        </tr>
+        <tr>
+            <td>Justin-Sun</td>
+            <td >BLockChain</td>
+            <td >Tron/USDD</td>
+        </tr>
+        <tr>
+            <td>Vitalik-Butarin</td>
+            <td >Ethereum</td>
+            <td >GAmer</td>
+        </tr>
+        <tr>
+            <td>Jeff-Bezos</td>
+            <td >Derivative-Trader</td>
+            <td >Amazon</td>
+        </tr>
+        <tr>
+            <td>MasaYoshi-Sonn</td>
+            <td >Goat</td>
+            <td>Soft-Bank</td>
+        </tr>
+        <tr>
+            <td>Nicola-Tesla</td>
+            <td >GOAT Giga-Chad</td>
+            <td >Tech-Daddy</td>
+        </tr>
+        <tr>
+            <td>Warren-Buffet</td>
+            <td >Therotical-Physics</td>
+            <td >Tesla</td>
+        </tr>
+    </table>
+    </div>
+
+<script>
+const searchfun = () =>{
+  let filter = document.getElementById('myInput').value.toUpperCase();
+  let Table = document.getElementById('myTable');
+  let tr = Table.getElementsByTagName('tr');
+
+for(let i=0; i < tr.length; i++){
+  let td = tr[i].getElementsByTagName('td')[0];
+    if(td){
+     let TrueValue = td.textContent || td.innerHTML;
+      if(TrueValue.toUpperCase().indexOf(filter) > -1){
+        tr[i].style.display = '';
+      }
+      else{
+        tr[i].style.display = 'none';
+    }
+    }
+}
+}
+searchfun()
+</script>
+</body>
+</html>
